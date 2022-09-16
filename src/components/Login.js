@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { Fragment, useState } from 'react';
 import { useForm }from "react-hook-form";
 
@@ -6,7 +7,7 @@ const Login = () => {
   const { register, handleSubmit} = useForm ();
 
   const onSubmit = data =>{
-    console.log(data);
+    axios.get('http://localhost:3000/api/login/'+ data.email + '/'+ data.password).then((response)=>{window.location.href="/Registro";})
   }
 
   const [datos, setDatos] = useState({
